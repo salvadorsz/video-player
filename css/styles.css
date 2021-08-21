@@ -1,4 +1,4 @@
-@import'./buttons.css';
+@import'./css/buttons.css';
 
 body {
     background-color:#26B4BC;
@@ -7,12 +7,66 @@ body {
 
 .wrapper{
     max-inline-size: 900px;
+    margin: auto;
 }
 
-
+.player{
+    margin-block-start: 100px; 
+    position: relative;
 }
 
 .player video{
     inline-size: 100%;
-    
+    aspect-ratio: 16/9;
+    vertical-align: middle;
+    object-fit: cover;
+   
 }
+.player-title{
+    color:white;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 20px;
+     
+}
+.player-actions{
+    color:white;
+    position: absolute;
+    inset: 0;
+    /* 
+    otros modelos de insets: 
+    inset-block-end: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inset-inline-start:0; 
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Cambiar orden de renderizado de video "Stack de como se ponen en HTML"
+    z-index: 2; 
+    */
+}
+.player-progress{
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline: 0;
+    display: flex; 
+    padding: 10px; 
+}
+.player-progress input{
+    flex: 1;
+
+}
+.player-overlay{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: .8s opacity; 
+}
+.player:hover .player-overlay{
+    opacity: 1;
+}
+
+
